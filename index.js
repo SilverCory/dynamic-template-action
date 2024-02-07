@@ -81,7 +81,7 @@ function getCustomInput(){
       reduce((customInputObject, [key, value]) => {
         core.debug(`Adding custom property ${key} with value ${value}`)
         return {...customInputObject, [key]:value }
-      })
+      }, {})
   }catch(error){
     core.error(`Failed to parse custom input: ${error}`);
   }
