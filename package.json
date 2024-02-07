@@ -4,23 +4,26 @@
   "description": "🪄 GitHub Action that allows dynamic template for PR body and title",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build index.js --license licenses.txt",
+    "build": "ncc build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luigibertaco/dynamic-template-action.git"
+    "url": "git+https://github.com/silvercory/dynamic-template-action.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luigibertaco/dynamic-template-action/issues"
+    "url": "https://github.com/silvercory/dynamic-template-action/issues"
   },
-  "homepage": "https://github.com/luigibertaco/dynamic-template-action#readme",
+  "homepage": "https://github.com/silvercory/dynamic-template-action#readme",
   "dependencies": {
-    "@actions/core": "^1.4.0",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^5.0.0",
     "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
   }
 }

@@ -68,18 +68,20 @@ function getClosingMustacheTag(){
 }
 
 function getCustomInput(){
-  const customInput = core.getInput("customInput", {
+  const customInput = core.getMultilineInput("customInput", {
     required: false,
+    trimWhitespace: true
   });
+  core.debug(`Custom input: ${customInput}`)
 
   try {
-    return parseArray(customInput).reduce((customInputObject, keyValueString) => {
-      if(!keyValueString) return customInputObject;
-      const indexOfSeparator = keyValueString.indexOf(":");
-      const key = keyValueString.substring(0, indexOfSeparator);
-      const value = keyValueString.substring(indexOfSeparator + 1);
-      return {...customInputObject, [key]:value }
-    },{})
+    return customInput.
+      map((n) => n.split(":").
+      map((n) => n.trim())).
+      reduce((customInputObject, [key, value]) => {
+        core.debug(`Adding custom property ${key} with value ${value}`)
+        return {...customInputObject, [key]:value }
+      })
   }catch(error){
     core.error(`Failed to parse custom input: ${error}`);
   }

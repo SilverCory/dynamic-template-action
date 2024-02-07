@@ -74,9 +74,9 @@ The `customInput` sets additional data to access in your templates. For example 
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
 
-      - uses: luigibertaco/dynamic-template-action@1.0.0
+      - uses: silvercory/dynamic-template-action@1.0.0
         with:
-          customInput: 
+          customInput: |
             today: ${{ steps.date.outputs.date }}
             now: ${{ steps.date.outputs.date }}
 ```
